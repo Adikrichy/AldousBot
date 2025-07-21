@@ -1,6 +1,6 @@
 package org.aldouscloud.aldousbot.config;
 
-import org.aldouscloud.aldousbot.service.EchoBot;
+import org.aldouscloud.aldousbot.bot.EchoBot;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
