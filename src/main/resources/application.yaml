@@ -1,3 +1,14 @@
 bot:
   username: Aldous_Echo_Bot
   token:
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/aldousBot
+    username: postgres
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
