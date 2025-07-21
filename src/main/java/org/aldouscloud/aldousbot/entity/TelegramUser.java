@@ -1,11 +1,13 @@
 package org.aldouscloud.aldousbot.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -14,7 +16,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class TelegramUser {
     @Id
-    private long chatId;
+    private Long chatId;
     private String username;
-    private String lastMessage;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Message> messages = new ArrayList<>();
+
 }

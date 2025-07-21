@@ -34,8 +34,14 @@ public class EchoBot extends TelegramLongPollingBot {
             }
 
             telegramUserService.handleUserMessage(Long.parseLong(chatId), usernameFromTg, text);
+            String reply = switch (text) {
+                case "/start" -> "Привет, я AldousBot! Напиши мне что-нибудь";
+                case "/help" -> "Команды: /start, /help, /info";
+                case "/info" -> "Ты: @" + usernameFromTg + ", chatId: " + chatId;
+                default -> "Ты сказал: " + text;
+            };
 
-            SendMessage message = new SendMessage(chatId, "You said:" + text);
+            SendMessage message = new SendMessage(chatId, reply);
             try{
                 execute(message);
             } catch (TelegramApiException e){
